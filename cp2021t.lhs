@@ -1107,7 +1107,9 @@ Apresentar de seguida a justificação da solução encontrada.
 \begin{code}
 calcLine :: NPoint -> (NPoint -> OverTime NPoint)
 calcLine = cataList h where
-   h = undefined
+   h = either g1 g2 
+   g1 = undefined
+   g2 t = undefined
 
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
@@ -1125,10 +1127,44 @@ avg = p1.avg_aux
 \end{code}
 
 \begin{code}
-avg_aux = undefined
+comprimento [a] = 1
+comprimento (a:x) = 1 + comprimento x
+
+media [a] = a
+media (a:x) = (a + (comprimento x)*(media x)) / (1 + comprimento x)
+
+outL [a] = i1 a 
+outL (a:x) = i2 (a,x)
+
+myCataList g = g . recList (myCataList g) . outL
+
+average l = (x/y,y)
+          where (x, y) = aux l
+                aux[a] = (a, 1)
+                aux(a:l) = (a + x, y + 1)
+                                where (x, y) = aux l
+
+myavg = myCataList (either (split id one) (split (add.p1.assocl) (succ.p2.p2))) 
+
+avg_aux = undefined{--g . recList (myCataList g) . outL
+        where g = either (split id one) (split (add.p2) (succ.p2.p2))
+              myCataList g = g . recList (myCataList g) . outL--}
+
+        
 \end{code}
 Solução para árvores de tipo \LTree:
 \begin{code}
+compLTree (Leaf a) = 1
+compLTree (Fork (a,b)) = compLTree a + compLTree b
+
+mediaLTree (Leaf a) = a
+mediaLTree (Fork (a,b)) = (mediaLTree a + mediaLTree b) / (compLTree (Fork (a,b)))
+
+getfst ((a,b),(c,d)) = (a,c)
+getsnd ((a,b),(c,d)) = (b,d)
+
+myavgLTree = cataLTree (either (split id one) (split (add.getfst) (add.getsnd)))
+
 avgLTree = p1.cataLTree gene where
    gene = undefined
 \end{code}
