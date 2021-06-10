@@ -702,7 +702,7 @@ Verifique as suas funções testando a propriedade seguinte:
 A média de uma lista não vazia e de uma \LTree\ com os mesmos elementos coincide,
 a menos de um erro de 0.1 milésimas:
 \begin{code}
-prop_avg :: Ord a => [a] -> Property
+prop_avg ::  [Double] -> Property 
 prop_avg = nonempty .==>. diff .<=. const 0.000001 where
    diff l = avg l - (avgLTree . genLTree) l
    genLTree = anaLTree lsplit
@@ -1108,8 +1108,8 @@ Apresentar de seguida a justificação da solução encontrada.
 calcLine :: NPoint -> (NPoint -> OverTime NPoint)
 calcLine = cataList h where
    h = either g1 g2 
-   g1 = undefined
-   g2 t = undefined
+   g1 _ _ = nil
+   g2 a b = undefined
 
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
@@ -1133,22 +1133,31 @@ comprimento (a:x) = 1 + comprimento x
 media [a] = a
 media (a:x) = (a + (comprimento x)*(media x)) / (1 + comprimento x)
 
-outL [a] = i1 a 
-outL (a:x) = i2 (a,x)
-
-myCataList g = g . recList (myCataList g) . outL
-
 average l = (x/y,y)
           where (x, y) = aux l
                 aux[a] = (a, 1)
                 aux(a:l) = (a + x, y + 1)
                                 where (x, y) = aux l
 
-myavg = myCataList (either (split id one) (split (add.p1.assocl) (succ.p2.p2))) 
+myavg = myCataList (either (split id (const 1.0)) (split (divide . split (soma . split (multiplica.p2) p1) (suc.p2.p2)) (suc.p2.p2))) 
+      where divide (a,b) = a/b
+            multiplica (a,b) = a*b
+            soma (a,b) = a+b 
+            suc = (+1.0)  
 
-avg_aux = undefined{--g . recList (myCataList g) . outL
-        where g = either (split id one) (split (add.p2) (succ.p2.p2))
-              myCataList g = g . recList (myCataList g) . outL--}
+outL [a] = i1 a 
+outL (a:x) = i2 (a,x)
+
+myCataList g = g . recList (myCataList g) . outL
+
+divide = uncurry (/)
+multiplica = uncurry (*)
+soma = uncurry (+)
+suc = (+1.0) 
+
+avg_aux = myCataList (either b q)
+        where b = split id (const 1.0)
+              q = split (divide.split (soma.split (multiplica.p2) p1) (suc.p2.p2)) (suc.p2.p2)
 
         
 \end{code}
@@ -1158,15 +1167,19 @@ compLTree (Leaf a) = 1
 compLTree (Fork (a,b)) = compLTree a + compLTree b
 
 mediaLTree (Leaf a) = a
-mediaLTree (Fork (a,b)) = (mediaLTree a + mediaLTree b) / (compLTree (Fork (a,b)))
+mediaLTree (Fork (a,b)) = (compLTree a * mediaLTree a + compLTree b * mediaLTree b)/(compLTree a + compLTree b)
 
 getfst ((a,b),(c,d)) = (a,c)
 getsnd ((a,b),(c,d)) = (b,d)
+invcons (a:x) = (a,x)
 
-myavgLTree = cataLTree (either (split id one) (split (add.getfst) (add.getsnd)))
+myavgLTree = cataLTree (either (split id (const 1.0)) (split a (soma.getsnd)))
+           where soma (a,b) = a + b
+                 a ((b,c),(d,e)) = (c*b + e*d)/(c+e) 
 
 avgLTree = p1.cataLTree gene where
-   gene = undefined
+   gene = either (split id (const 1.0)) (split calc (soma.getsnd))
+   calc = divide.split (soma.split (multiplica.p1) (multiplica.p2)) (soma.getsnd)
 \end{code}
 
 \subsection*{Problema 5}
