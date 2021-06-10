@@ -1133,18 +1133,6 @@ comprimento (a:x) = 1 + comprimento x
 media [a] = a
 media (a:x) = (a + (comprimento x)*(media x)) / (1 + comprimento x)
 
-average l = (x/y,y)
-          where (x, y) = aux l
-                aux[a] = (a, 1)
-                aux(a:l) = (a + x, y + 1)
-                                where (x, y) = aux l
-
-myavg = myCataList (either (split id (const 1.0)) (split (divide . split (soma . split (multiplica.p2) p1) (suc.p2.p2)) (suc.p2.p2))) 
-      where divide (a,b) = a/b
-            multiplica (a,b) = a*b
-            soma (a,b) = a+b 
-            suc = (+1.0)  
-
 outL [a] = i1 a 
 outL (a:x) = i2 (a,x)
 
@@ -1169,17 +1157,10 @@ compLTree (Fork (a,b)) = compLTree a + compLTree b
 mediaLTree (Leaf a) = a
 mediaLTree (Fork (a,b)) = (compLTree a * mediaLTree a + compLTree b * mediaLTree b)/(compLTree a + compLTree b)
 
-getfst ((a,b),(c,d)) = (a,c)
-getsnd ((a,b),(c,d)) = (b,d)
-invcons (a:x) = (a,x)
-
-myavgLTree = cataLTree (either (split id (const 1.0)) (split a (soma.getsnd)))
-           where soma (a,b) = a + b
-                 a ((b,c),(d,e)) = (c*b + e*d)/(c+e) 
-
 avgLTree = p1.cataLTree gene where
    gene = either (split id (const 1.0)) (split calc (soma.getsnd))
    calc = divide.split (soma.split (multiplica.p1) (multiplica.p2)) (soma.getsnd)
+   getsnd ((a,b),(c,d)) = (b,d)
 \end{code}
 
 \subsection*{Problema 5}
