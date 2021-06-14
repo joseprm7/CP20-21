@@ -95,6 +95,7 @@
 %format .&&&. = "\wedge"
 %format cdots = "\cdots "
 %format pi = "\pi "
+%format quadrado = "^2"
 %format (curry (f)) = "\overline{" f "}"
 %format (cataLTree (x)) = "\llparenthesis\, " x "\,\rrparenthesis"
 %format (anaLTree (x)) = "\mathopen{[\!(}" x "\mathclose{)\!]}"
@@ -127,15 +128,13 @@
 
 \begin{center}\large
 \begin{tabular}{ll}
-\textbf{Grupo} nr. & 999 (preencher)
+\textbf{Grupo} nr. & 9 
 \\\hline
-a11111 & Nome1 (preencher)	
+a85846 & João Tadeu Correia Torres	
 \\
-a22222 & Nome2 (preencher)	
+a87961 & José Pedro Rodrigues Manso 	
 \\
-a33333 & Nome3 (preencher)	
-\\
-a44444 & Nome4 (preencher, se aplicável, ou apagar)	
+a87980 & José Rafael Pires Reis 
 \end{tabular}
 \end{center}
 
@@ -991,7 +990,7 @@ f .&&&. g = \a -> ((f a) && (g a))
 Os alunos devem colocar neste anexo as suas soluções para os exercícios
 propostos, de acordo com o "layout" que se fornece. Não podem ser
 alterados os nomes ou tipos das funções dadas, mas pode ser adicionado
-texto, disgramas e/ou outras funções auxiliares que sejam necessárias.
+texto, diagramas e/ou outras funções auxiliares que sejam necessárias.
 
 Valoriza-se a escrita de \emph{pouco} código que corresponda a soluções
 simples e elegantes. 
@@ -1015,7 +1014,19 @@ sd = p2 . cataExpAr sd_gen
 ad :: Floating a => a -> ExpAr a -> a
 ad v = p2 . cataExpAr (ad_gen v)
 \end{code}
-Definir:
+Definir: \vspace{1cm}
+
+\textbf{outExpAr}
+
+\begin{eqnarray*}
+\xymatrix@@C=5.5cm{
+  |ExpAr A| 
+  \ar@@/_2pc/[r]_-{|outExpAr|}
+  & 
+  |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  \ar@@/_2pc/[l]_-{|inExpAr|}
+}
+\end{eqnarray*}
 
 \begin{code}
 
@@ -1023,17 +1034,30 @@ outExpAr X = i1 ()
 outExpAr (N a) = i2 $ i1 a
 outExpAr (Bin op a b) = i2 $ i2 $ i1 (op, (a, b))
 outExpAr (Un op a) = i2 $ i2 $ i2 (op, a) 
+\end{code}
 
----
+\textbf{recExpAr} \vspace{0.5cm}
+
+Como as operações binárias e unárias utilizam elementos do tipo ExpAr, 
+a função irá ser aplicada apenas a esses casos.
+
+\begin{code}
 recExpAr f = baseExpAr id id id f f id f
----
+\end{code}
+
+\textbf{g\_eval\_exp}
+
+\begin{code}
 g_eval_exp a = either (const a) (either id (either g3 g4))
             where g3 (Product, (c, d)) =  c * d
                   g3 (Sum, (c, d)) = c + d
                   g4 (Negate, b) = -b
                   g4 (E, b)= expd b
----
+\end{code}
 
+\textbf{clean}
+
+\begin{code}
 clean X = i1 ()
 clean (N a) = i2 $ i1 a  
 clean (Bin Product (N 0) a) = i2 $ i1 0 
@@ -1042,17 +1066,12 @@ clean (Bin op a b) = i2 $ i2 $ i1 (op, (a, b))
 clean (Un Negate (N 0)) =  i2 $ i1 0
 clean (Un E (N 0)) = i2 $ i1 1
 clean (Un op a) = i2 $ i2 $ i2 (op, a)
+\end{code}
 
-gopt a = either (const a) (either id (either g3 g4))
-      where g3 (Product,(c,1)) = c
-            g3 (Product,(1,c)) = c
-            g3 (Product, (c, d)) =  c * d
-            g3 (Sum, (0, d)) = d
-            g3 (Sum, (d, 0)) = d
-            g3 (Sum, (c, d)) = c + d
-            g4 (Negate, b) = -b
-            g4 (E, b)= expd b
-            
+\textbf{gopt}
+
+\begin{code}
+gopt a = g_eval_exp a            
 \end{code}
 
 \begin{code}
@@ -1107,9 +1126,10 @@ Apresentar de seguida a justificação da solução encontrada.
 \begin{code}
 calcLine :: NPoint -> (NPoint -> OverTime NPoint)
 calcLine = cataList h where
-   h = either g1 g2 
-   g1 _ _ = nil
-   g2 a b = undefined
+   h = undefined{-either g1 (inList . divide)
+   g1 _ _ = nil 
+   divide (x:xs) ys = (x,(xs,ys))
+   inList (x,(xs,ys)) = x:xs:ys-} -- talvez usar o x e o xs para calcular o Overtime?
 
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
