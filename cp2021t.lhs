@@ -55,6 +55,7 @@
 %format (cataB (f) (g)) = "\cata{" f "~" g "}_B"
 %format (cata (f)) = "\cata{" f "}"
 %format (anaB (f) (g)) = "\ana{" f "~" g "}_B"
+%format (anaExpAr (g)) = "\ana{" g "}"
 %format Either a b = a "+" b 
 %format fmap = "\mathsf{fmap}"
 %format NA   = "\textsc{na}"
@@ -1023,7 +1024,7 @@ Definir: \vspace{1cm}
   |ExpAr A| 
   \ar@@/_2pc/[r]_-{|outExpAr|}
   & 
-  |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
   \ar@@/_2pc/[l]_-{|inExpAr|}
 }
 \end{eqnarray*}
@@ -1041,11 +1042,34 @@ outExpAr (Un op a) = i2 $ i2 $ i2 (op, a)
 Como as operações binárias e unárias utilizam elementos do tipo ExpAr, 
 a função irá ser aplicada apenas a esses casos.
 
+\begin{eqnarray*}
+\xymatrix@@C=3.5cm{
+  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))| 
+  \ar[d]_-{|id + (id + (id >< f quadrado + id >< f))|}
+  \\ 
+  |X + (N + (BinOp >< Nat0 quadrado + UnOp >< Nat0))|
+}
+\end{eqnarray*}
+
 \begin{code}
 recExpAr f = baseExpAr id id id f f id f
 \end{code}
 
 \textbf{g\_eval\_exp}
+
+\begin{eqnarray*}
+\xymatrix@@C=3.5cm{
+  |ExpAr A| 
+  \ar[r]^-{|outExpAr|}
+  \ar[d]_-{|cata (g_eval_exp a)|}
+  & 
+  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  \ar[d]^-{|recExpAr|}
+  \\
+  |Nat0| & |X + (N + (BinOp >< Nat0 quadrado + UnOp >< Nat0))|
+  \ar[l]^-{|[const a, [id, [g3,g4]]]|}
+}
+\end{eqnarray*}
 
 \begin{code}
 g_eval_exp a = either (const a) (either id (either g3 g4))
@@ -1055,16 +1079,47 @@ g_eval_exp a = either (const a) (either id (either g3 g4))
                   g4 (E, b)= expd b
 \end{code}
 
+\newpage
+
 \textbf{clean}
+
+O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
+
+\begin{eqnarray*}
+\xymatrix@@C=3.5cm{
+  |Nat0|
+  \ar[r]^-{|outExpAr|}
+  & 
+  |X + (N + (BinOp >< Nat0 quadrado + UnOp >< Nat0))|
+  \\
+  |ExpAr B| 
+  \ar[u]^-{|cata (gopt a)|}
+  & 
+  |X + (N + (BinOp >< (ExpAr B)quadrado + UnOp >< (ExpAr B)))|
+  \ar[l]_-{|inExpAr|}
+  \ar[u]_-{|recExpAr|}
+  \\
+  |ExpAr A|
+  \ar[r]_-{|clean|}
+  \ar[u]^-{|(anaExpAr (clean))|}
+  & 
+  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  \ar[u]_-{|recExpAr|}
+}
+\end{eqnarray*}
 
 \begin{code}
 clean X = i1 ()
 clean (N a) = i2 $ i1 a  
-clean (Bin Product (N 0) a) = i2 $ i1 0 
-clean (Bin Product a (N 0)) = i2 $ i1 0 
-clean (Bin op a b) = i2 $ i2 $ i1 (op, (a, b))
-clean (Un Negate (N 0)) =  i2 $ i1 0
-clean (Un E (N 0)) = i2 $ i1 1
+clean (Bin Product a b) | a == (N 0) || b == (N 0) = i2 $ i1 0
+                        | a == (N 1) = clean b  
+                        | b == (N 1) = clean a 
+                        | otherwise = i2 $ i2 $ i1 (Product, (a, b))
+clean (Bin Sum a b) | a == (N 0) = clean b  
+                    | b == (N 0) = clean a 
+                    | otherwise = i2 $ i2 $ i1 (Sum, (a, b))                        
+clean (Un Negate (N a)) =  i2 $ i1 (-a)
+clean (Un E (N a)) = i2 $ i1 (expd a)
 clean (Un op a) = i2 $ i2 $ i2 (op, a)
 \end{code}
 
@@ -1073,6 +1128,8 @@ clean (Un op a) = i2 $ i2 $ i2 (op, a)
 \begin{code}
 gopt a = g_eval_exp a            
 \end{code}
+
+\textbf{sd\_gen}
 
 \begin{code}
 sd_gen :: Floating a =>
@@ -1086,6 +1143,8 @@ sd_gen = either g1 (either g2 (either g3 g4))
               g4 (Negate, (a,b))          = (Un Negate a, Un Negate b)
 
 \end{code}
+
+\textbf{ad\_gen}
 
 \begin{code}
 ad_gen v = either g1 (either g2 (either g3 g4))

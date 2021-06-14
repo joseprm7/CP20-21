@@ -1532,9 +1532,9 @@ São dadas:
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{cataExpAr}\;\Varid{g}\mathrel{=}\Varid{g}\comp \Varid{recExpAr}\;(\Varid{cataExpAr}\;\Varid{g})\comp \Varid{outExpAr}{}\<[E]%
 \\
-\>[B]{}\Varid{anaExpAr}\;\Varid{g}\mathrel{=}\Varid{inExpAr}\comp \Varid{recExpAr}\;(\Varid{anaExpAr}\;\Varid{g})\comp \Varid{g}{}\<[E]%
+\>[B]{}\ana{\Varid{g}}\mathrel{=}\Varid{inExpAr}\comp \Varid{recExpAr}\;\ana{\Varid{g}}\comp \Varid{g}{}\<[E]%
 \\
-\>[B]{}\Varid{hyloExpAr}\;\Varid{h}\;\Varid{g}\mathrel{=}\Varid{cataExpAr}\;\Varid{h}\comp \Varid{anaExpAr}\;\Varid{g}{}\<[E]%
+\>[B]{}\Varid{hyloExpAr}\;\Varid{h}\;\Varid{g}\mathrel{=}\Varid{cataExpAr}\;\Varid{h}\comp \ana{\Varid{g}}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{eval\char95 exp}\mathbin{::}\Conid{Floating}\;\Varid{a}\Rightarrow \Varid{a}\to (\Conid{ExpAr}\;\Varid{a})\to \Varid{a}{}\<[E]%
 \\
@@ -1562,7 +1562,7 @@ Definir: \vspace{1cm}
   \ensuremath{\Conid{ExpAr}\;\Conid{A}} 
   \ar@/_2pc/[r]_-{\ensuremath{\Varid{outExpAr}}}
   & 
-  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
   \ar@/_2pc/[l]_-{\ensuremath{\Varid{inExpAr}}}
 }
 \end{eqnarray*}
@@ -1585,6 +1585,15 @@ Definir: \vspace{1cm}
 Como as operações binárias e unárias utilizam elementos do tipo ExpAr, 
 a função irá ser aplicada apenas a esses casos.
 
+\begin{eqnarray*}
+\xymatrix@C=3.5cm{
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))} 
+  \ar[d]_-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\mathbin{+}(\Varid{id}\times\Varid{f}\;^2\mathbin{+}\Varid{id}\times\Varid{f}))}}
+  \\ 
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\N_0\;^2\mathbin{+}\Conid{UnOp}\times\N_0))}
+}
+\end{eqnarray*}
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1593,6 +1602,20 @@ a função irá ser aplicada apenas a esses casos.
 \end{hscode}\resethooks
 
 \textbf{g\_eval\_exp}
+
+\begin{eqnarray*}
+\xymatrix@C=3.5cm{
+  \ensuremath{\Conid{ExpAr}\;\Conid{A}} 
+  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
+  \ar[d]_-{\ensuremath{\cata{\Varid{g\char95 eval\char95 exp}\;\Varid{a}}}}
+  & 
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ar[d]^-{\ensuremath{\Varid{recExpAr}}}
+  \\
+  \ensuremath{\N_0} & \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\N_0\;^2\mathbin{+}\Conid{UnOp}\times\N_0))}
+  \ar[l]^-{\ensuremath{[\mskip1.5mu \underline{\Varid{a}},[\mskip1.5mu \Varid{id},[\mskip1.5mu \Varid{g3},\Varid{g4}\mskip1.5mu]\mskip1.5mu]\mskip1.5mu]}}
+}
+\end{eqnarray*}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1617,26 +1640,68 @@ a função irá ser aplicada apenas a esses casos.
 \ColumnHook
 \end{hscode}\resethooks
 
+\newpage
+
 \textbf{clean}
+
+O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
+
+\begin{eqnarray*}
+\xymatrix@C=3.5cm{
+  \ensuremath{\N_0}
+  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
+  & 
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\N_0\;^2\mathbin{+}\Conid{UnOp}\times\N_0))}
+  \\
+  \ensuremath{\Conid{ExpAr}\;\Conid{B}} 
+  \ar[u]^-{\ensuremath{\cata{\Varid{gopt}\;\Varid{a}}}}
+  & 
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{B})))}
+  \ar[l]_-{\ensuremath{\Varid{inExpAr}}}
+  \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
+  \\
+  \ensuremath{\Conid{ExpAr}\;\Conid{A}}
+  \ar[r]_-{\ensuremath{\Varid{clean}}}
+  \ar[u]^-{\ensuremath{\ana{\Varid{clean}}}}
+  & 
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
+}
+\end{eqnarray*}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{21}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{28}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{clean}\;\Conid{X}\mathrel{=}i_1\;(){}\<[E]%
 \\
 \>[B]{}\Varid{clean}\;(\Conid{N}\;\Varid{a})\mathrel{=}i_2\mathbin{\$}i_1\;\Varid{a}{}\<[E]%
 \\
-\>[B]{}\Varid{clean}\;(\Conid{Bin}\;\Conid{Product}\;(\Conid{N}\;\mathrm{0})\;\Varid{a})\mathrel{=}i_2\mathbin{\$}i_1\;\mathrm{0}{}\<[E]%
+\>[B]{}\Varid{clean}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{a}\;\Varid{b})\mid \Varid{a}\equiv (\Conid{N}\;\mathrm{0})\mathrel{\vee}\Varid{b}\equiv (\Conid{N}\;\mathrm{0})\mathrel{=}i_2\mathbin{\$}i_1\;\mathrm{0}{}\<[E]%
 \\
-\>[B]{}\Varid{clean}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{a}\;(\Conid{N}\;\mathrm{0}))\mathrel{=}i_2\mathbin{\$}i_1\;\mathrm{0}{}\<[E]%
+\>[B]{}\hsindent{25}{}\<[25]%
+\>[25]{}\mid \Varid{a}\equiv (\Conid{N}\;\mathrm{1})\mathrel{=}\Varid{clean}\;\Varid{b}{}\<[E]%
 \\
-\>[B]{}\Varid{clean}\;(\Conid{Bin}\;\Varid{op}\;\Varid{a}\;\Varid{b})\mathrel{=}i_2\mathbin{\$}i_2\mathbin{\$}i_1\;(\Varid{op},(\Varid{a},\Varid{b})){}\<[E]%
+\>[B]{}\hsindent{25}{}\<[25]%
+\>[25]{}\mid \Varid{b}\equiv (\Conid{N}\;\mathrm{1})\mathrel{=}\Varid{clean}\;\Varid{a}{}\<[E]%
 \\
-\>[B]{}\Varid{clean}\;(\Conid{Un}\;\Conid{Negate}\;(\Conid{N}\;\mathrm{0}))\mathrel{=}{}\<[28]%
-\>[28]{}i_2\mathbin{\$}i_1\;\mathrm{0}{}\<[E]%
+\>[B]{}\hsindent{25}{}\<[25]%
+\>[25]{}\mid \Varid{otherwise}\mathrel{=}i_2\mathbin{\$}i_2\mathbin{\$}i_1\;(\Conid{Product},(\Varid{a},\Varid{b})){}\<[E]%
 \\
-\>[B]{}\Varid{clean}\;(\Conid{Un}\;\Conid{E}\;(\Conid{N}\;\mathrm{0}))\mathrel{=}i_2\mathbin{\$}i_1\;\mathrm{1}{}\<[E]%
+\>[B]{}\Varid{clean}\;(\Conid{Bin}\;\Conid{Sum}\;\Varid{a}\;\Varid{b})\mid \Varid{a}\equiv (\Conid{N}\;\mathrm{0})\mathrel{=}\Varid{clean}\;\Varid{b}{}\<[E]%
+\\
+\>[B]{}\hsindent{21}{}\<[21]%
+\>[21]{}\mid \Varid{b}\equiv (\Conid{N}\;\mathrm{0})\mathrel{=}\Varid{clean}\;\Varid{a}{}\<[E]%
+\\
+\>[B]{}\hsindent{21}{}\<[21]%
+\>[21]{}\mid \Varid{otherwise}\mathrel{=}i_2\mathbin{\$}i_2\mathbin{\$}i_1\;(\Conid{Sum},(\Varid{a},\Varid{b})){}\<[E]%
+\\
+\>[B]{}\Varid{clean}\;(\Conid{Un}\;\Conid{Negate}\;(\Conid{N}\;\Varid{a}))\mathrel{=}{}\<[28]%
+\>[28]{}i_2\mathbin{\$}i_1\;(\mathbin{-}\Varid{a}){}\<[E]%
+\\
+\>[B]{}\Varid{clean}\;(\Conid{Un}\;\Conid{E}\;(\Conid{N}\;\Varid{a}))\mathrel{=}i_2\mathbin{\$}i_1\;(\Varid{expd}\;\Varid{a}){}\<[E]%
 \\
 \>[B]{}\Varid{clean}\;(\Conid{Un}\;\Varid{op}\;\Varid{a})\mathrel{=}i_2\mathbin{\$}i_2\mathbin{\$}i_2\;(\Varid{op},\Varid{a}){}\<[E]%
 \ColumnHook
@@ -1650,6 +1715,8 @@ a função irá ser aplicada apenas a esses casos.
 \>[B]{}\Varid{gopt}\;\Varid{a}\mathrel{=}\Varid{g\char95 eval\char95 exp}\;\Varid{a}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\textbf{sd\_gen}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1689,6 +1756,8 @@ a função irá ser aplicada apenas a esses casos.
 \>[43]{}\mathrel{=}(\Conid{Un}\;\Conid{Negate}\;\Varid{a},\Conid{Un}\;\Conid{Negate}\;\Varid{b}){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\textbf{ad\_gen}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
