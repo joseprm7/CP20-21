@@ -1063,10 +1063,10 @@ recExpAr f = baseExpAr id id id f f id f
   \ar[r]^-{|outExpAr|}
   \ar[d]_-{|cata (g_eval_exp a)|}
   & 
-  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
   \ar[d]^-{|recExpAr|}
   \\
-  |Nat0| & |X + (N + (BinOp >< Nat0 quadrado + UnOp >< Nat0))|
+  |B| & |1 + (N + (BinOp >< B quadrado + UnOp >< B))|
   \ar[l]^-{|[const a, [id, [g3,g4]]]|}
 }
 \end{eqnarray*}
@@ -1087,24 +1087,24 @@ O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
 
 \begin{eqnarray*}
 \xymatrix@@C=3.5cm{
-  |Nat0|
-  \ar[r]^-{|outExpAr|}
+  |ExpAr A|
+  \ar[r]_-{|clean|}
+  \ar[d]^-{|(anaExpAr (clean))|}
   & 
-  |X + (N + (BinOp >< Nat0 quadrado + UnOp >< Nat0))|
+  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  \ar[u]_-{|recExpAr|}
   \\
   |ExpAr B| 
-  \ar[u]^-{|cata (gopt a)|}
+  \ar[d]^-{|cata (gopt a)|}
   & 
   |X + (N + (BinOp >< (ExpAr B)quadrado + UnOp >< (ExpAr B)))|
   \ar[l]_-{|inExpAr|}
   \ar[u]_-{|recExpAr|}
   \\
-  |ExpAr A|
-  \ar[r]_-{|clean|}
-  \ar[u]^-{|(anaExpAr (clean))|}
+  |Nat0|
+  \ar[r]^-{|outExpAr|}
   & 
-  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
-  \ar[u]_-{|recExpAr|}
+  |X + (N + (BinOp >< A quadrado + UnOp >< A))|
 }
 \end{eqnarray*}
 
@@ -1131,9 +1131,23 @@ gopt a = g_eval_exp a
 
 \textbf{sd\_gen}
 
+\begin{eqnarray*}
+\xymatrix@@C=3.5cm{
+  |ExpAr A| 
+  \ar[r]^-{|outExpAr|}
+  \ar[d]_-{|cata (sd_gen)|}
+  & 
+  |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  \ar[d]^-{|id + (id + (id >< cata (sd_gen) + id >< cata (sd_gen)))|}
+  \\
+  |(ExpAr B) quadrado| & |1 + (N + (BinOp >< (ExpAr B >< ExpAr B) quadrado + UnOp >< (ExpAr B) quadrado))|
+  \ar[l]^-{|[g1, [g2, [g3,g4]]]|}
+}
+\end{eqnarray*}
+
 \begin{code}
 sd_gen :: Floating a =>
-    Either () (Either a (Either (BinOp, ((ExpAr a, ExpAr a), (ExpAr a, ExpAr a))) (UnOp, (ExpAr a, ExpAr a)))) -> (ExpAr a, ExpAr a)
+ Either () (Either a (Either (BinOp, ((ExpAr a, ExpAr a), (ExpAr a, ExpAr a))) (UnOp, (ExpAr a, ExpAr a)))) -> (ExpAr a, ExpAr a)
 sd_gen = either g1 (either g2 (either g3 g4))
         where g1 ()                       = (X, N 1.0)
               g2 a                        = (N a, N 0.0)
@@ -1144,7 +1158,23 @@ sd_gen = either g1 (either g2 (either g3 g4))
 
 \end{code}
 
+\newpage
+
 \textbf{ad\_gen}
+
+\begin{eqnarray*}
+\xymatrix@@C=2.5cm{
+  |ExpAr A| 
+  \ar[r]^-{|outExpAr|}
+  \ar[d]_-{|cata (ad_gen v)|}
+  & 
+  |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  \ar[d]^-{|id + (id + (id >< cata (ad_gen v) + id >< cata (ad_gen v)))|}
+  \\
+  |(ExpAr B, Nat0)| & |1 + (N + (BinOp >< (ExpAr B >< Nat0) quadrado + UnOp >< (ExpAr B >< Nat0)))|
+  \ar[l]^-{|[g1, [g2, [g3,g4]]]|}
+}
+\end{eqnarray*}
 
 \begin{code}
 ad_gen v = either g1 (either g2 (either g3 g4))
@@ -1157,38 +1187,42 @@ ad_gen v = either g1 (either g2 (either g3 g4))
 \end{code}
 
 \subsection*{Problema 2}
-Definir
+
+\textbf{Funções definidas em pointwise}
+
 \begin{code}
+catalan 0 = 1
+catalan n = div ((4*(s (n-1))-2)*(catalan (n-1))) (1+s (n-1))
 
--- Funções definidas em pointwise:
---
--- catalan 0 = 1
--- catalan n = div ((4*(s (n-1))-2)*(catalan (n-1))) (1+ s (n-1))
+s 0 = 1
+s n = 1 + s (n-1)
+\end{code}
 
--- s 0 = 1
--- s n = 1 + s (n-1)
+\textbf{Versão pointfree}
 
+\begin{code}
 loop (c,s) = (div ((4*s-2)*c) (1+s),1+s)  
 inic = (1,1)
 prj = p1
-\end{code}
-por forma a que
-\begin{code}
+
 cat = prj . (for loop inic)
 \end{code}
-seja a função pretendida.
 \textbf{NB}: usar divisão inteira.
 Apresentar de seguida a justificação da solução encontrada.
 
+Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, 
+
+C_n = \frac{(2n)!}{(n+1)! (n!) } \vspace{0.5cm}
+
+Com isto, é possível concluir que \vspace{0.5cm}
+
+C_n = \frac{1} {n+1} (2n n)
 \subsection*{Problema 3}
 
 \begin{code}
 calcLine :: NPoint -> (NPoint -> OverTime NPoint)
 calcLine = cataList h where
-   h = undefined{-either g1 (inList . divide)
-   g1 _ _ = nil 
-   divide (x:xs) ys = (x,(xs,ys))
-   inList (x,(xs,ys)) = x:xs:ys-} -- talvez usar o x e o xs para calcular o Overtime?
+   h = undefined
 
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
@@ -1204,24 +1238,33 @@ Solução para listas não vazias:
 \begin{code}
 avg = p1.avg_aux
 \end{code}
-
+\textbf{Versão pointwise}
 \begin{code}
 comprimento [a] = 1
 comprimento (a:x) = 1 + comprimento x
 
 media [a] = a
 media (a:x) = (a + (comprimento x)*(media x)) / (1 + comprimento x)
+\end{code}
 
+\textbf{Definição do catamorfismo para listas não vazias}
+\begin{code}
 outL [a] = i1 a 
 outL (a:x) = i2 (a,x)
 
 myCataList g = g . recList (myCataList g) . outL
+\end{code}
 
+\textbf{Funções auxiliares}
+\begin{code}
 divide = uncurry (/)
 multiplica = uncurry (*)
 soma = uncurry (+)
 suc = (+1.0) 
+\end{code}
 
+\textbf{Versão pointfree}
+\begin{code}
 avg_aux = myCataList (either b q)
         where b = split id (const 1.0)
               q = split (divide.split (soma.split (multiplica.p2) p1) (suc.p2.p2)) (suc.p2.p2)
@@ -1229,13 +1272,20 @@ avg_aux = myCataList (either b q)
         
 \end{code}
 Solução para árvores de tipo \LTree:
+
+
+\textbf{Versão pointwise}
 \begin{code}
 compLTree (Leaf a) = 1
 compLTree (Fork (a,b)) = compLTree a + compLTree b
 
 mediaLTree (Leaf a) = a
 mediaLTree (Fork (a,b)) = (compLTree a * mediaLTree a + compLTree b * mediaLTree b)/(compLTree a + compLTree b)
+\end{code}
 
+
+\textbf{Versão pointfree}
+\begin{code}
 avgLTree = p1.cataLTree gene where
    gene = either (split id (const 1.0)) (split calc (soma.getsnd))
    calc = divide.split (soma.split (multiplica.p1) (multiplica.p2)) (soma.getsnd)

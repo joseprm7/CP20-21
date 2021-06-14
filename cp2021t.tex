@@ -1609,10 +1609,10 @@ a função irá ser aplicada apenas a esses casos.
   \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
   \ar[d]_-{\ensuremath{\cata{\Varid{g\char95 eval\char95 exp}\;\Varid{a}}}}
   & 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
   \ar[d]^-{\ensuremath{\Varid{recExpAr}}}
   \\
-  \ensuremath{\N_0} & \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\N_0\;^2\mathbin{+}\Conid{UnOp}\times\N_0))}
+  \ensuremath{\Conid{B}} & \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\Conid{B}\;^2\mathbin{+}\Conid{UnOp}\times\Conid{B}))}
   \ar[l]^-{\ensuremath{[\mskip1.5mu \underline{\Varid{a}},[\mskip1.5mu \Varid{id},[\mskip1.5mu \Varid{g3},\Varid{g4}\mskip1.5mu]\mskip1.5mu]\mskip1.5mu]}}
 }
 \end{eqnarray*}
@@ -1648,24 +1648,24 @@ O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
 
 \begin{eqnarray*}
 \xymatrix@C=3.5cm{
-  \ensuremath{\N_0}
-  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
+  \ensuremath{\Conid{ExpAr}\;\Conid{A}}
+  \ar[r]_-{\ensuremath{\Varid{clean}}}
+  \ar[d]^-{\ensuremath{\ana{\Varid{clean}}}}
   & 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\N_0\;^2\mathbin{+}\Conid{UnOp}\times\N_0))}
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
   \\
   \ensuremath{\Conid{ExpAr}\;\Conid{B}} 
-  \ar[u]^-{\ensuremath{\cata{\Varid{gopt}\;\Varid{a}}}}
+  \ar[d]^-{\ensuremath{\cata{\Varid{gopt}\;\Varid{a}}}}
   & 
   \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{B})))}
   \ar[l]_-{\ensuremath{\Varid{inExpAr}}}
   \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
   \\
-  \ensuremath{\Conid{ExpAr}\;\Conid{A}}
-  \ar[r]_-{\ensuremath{\Varid{clean}}}
-  \ar[u]^-{\ensuremath{\ana{\Varid{clean}}}}
+  \ensuremath{\N_0}
+  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
   & 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
-  \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
+  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\Conid{A}\;^2\mathbin{+}\Conid{UnOp}\times\Conid{A}))}
 }
 \end{eqnarray*}
 
@@ -1718,17 +1718,29 @@ O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
 
 \textbf{sd\_gen}
 
+\begin{eqnarray*}
+\xymatrix@C=3.5cm{
+  \ensuremath{\Conid{ExpAr}\;\Conid{A}} 
+  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
+  \ar[d]_-{\ensuremath{\cata{\Varid{sd\char95 gen}}}}
+  & 
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\mathbin{+}(\Varid{id}\times\cata{\Varid{sd\char95 gen}}\mathbin{+}\Varid{id}\times\cata{\Varid{sd\char95 gen}}))}}
+  \\
+  \ensuremath{(\Conid{ExpAr}\;\Conid{B})\;^2} & \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B}\times\Conid{ExpAr}\;\Conid{B})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{B})\;^2))}
+  \ar[l]^-{\ensuremath{[\mskip1.5mu \Varid{g1},[\mskip1.5mu \Varid{g2},[\mskip1.5mu \Varid{g3},\Varid{g4}\mskip1.5mu]\mskip1.5mu]\mskip1.5mu]}}
+}
+\end{eqnarray*}
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{9}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{15}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{43}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{sd\char95 gen}\mathbin{::}\Conid{Floating}\;\Varid{a}\Rightarrow {}\<[E]%
 \\
-\>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}()+(\Varid{a}+((\Conid{BinOp},((\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}),(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))+(\Conid{UnOp},(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}))))\to (\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}){}\<[E]%
+\>[B]{}()+(\Varid{a}+((\Conid{BinOp},((\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}),(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))+(\Conid{UnOp},(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}))))\to (\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}){}\<[E]%
 \\
 \>[B]{}\Varid{sd\char95 gen}\mathrel{=}\alt{\Varid{g1}}{\alt{\Varid{g2}}{\alt{\Varid{g3}}{\Varid{g4}}}}{}\<[E]%
 \\
@@ -1757,7 +1769,23 @@ O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
 \ColumnHook
 \end{hscode}\resethooks
 
+\newpage
+
 \textbf{ad\_gen}
+
+\begin{eqnarray*}
+\xymatrix@C=2.5cm{
+  \ensuremath{\Conid{ExpAr}\;\Conid{A}} 
+  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
+  \ar[d]_-{\ensuremath{\cata{\Varid{ad\char95 gen}\;\Varid{v}}}}
+  & 
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\mathbin{+}(\Varid{id}\times\cata{\Varid{ad\char95 gen}\;\Varid{v}}\mathbin{+}\Varid{id}\times\cata{\Varid{ad\char95 gen}\;\Varid{v}}))}}
+  \\
+  \ensuremath{(\Conid{ExpAr}\;\Conid{B},\N_0)} & \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B}\times\N_0)\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{B}\times\N_0)))}
+  \ar[l]^-{\ensuremath{[\mskip1.5mu \Varid{g1},[\mskip1.5mu \Varid{g2},[\mskip1.5mu \Varid{g3},\Varid{g4}\mskip1.5mu]\mskip1.5mu]\mskip1.5mu]}}
+}
+\end{eqnarray*}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1793,40 +1821,46 @@ O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
 \end{hscode}\resethooks
 
 \subsection*{Problema 2}
-Definir
+
+\textbf{Funções definidas em pointwise}
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\mbox{\onelinecomment  Funções definidas em pointwise:}{}\<[E]%
+\>[B]{}\Varid{catalan}\;\mathrm{0}\mathrel{=}\mathrm{1}{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment }{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment  catalan 0 = 1}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment  catalan n = div ((4*(s (n-1))-2)*(catalan (n-1))) (1+ s (n-1))}{}\<[E]%
+\>[B]{}\Varid{catalan}\;\Varid{n}\mathrel{=}(\mathrm{4}\mathbin{*}(\Varid{s}\;(\Varid{n}\mathbin{-}\mathrm{1}))\mathbin{-}\mathrm{2})\mathbin{*}(\Varid{catalan}\;(\Varid{n}\mathbin{-}\mathrm{1}))\div \mathrm{1}\mathbin{+}\Varid{s}\;(\Varid{n}\mathbin{-}\mathrm{1}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment  s 0 = 1}{}\<[E]%
+\>[B]{}\Varid{s}\;\mathrm{0}\mathrel{=}\mathrm{1}{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment  s n = 1 + s (n-1)}{}\<[E]%
-\\[\blanklineskip]%
+\>[B]{}\Varid{s}\;\Varid{n}\mathrel{=}\mathrm{1}\mathbin{+}\Varid{s}\;(\Varid{n}\mathbin{-}\mathrm{1}){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+\textbf{Versão pointfree}
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{loop}\;(\Varid{c},\Varid{s})\mathrel{=}((\mathrm{4}\mathbin{*}\Varid{s}\mathbin{-}\mathrm{2})\mathbin{*}\Varid{c}\div \mathrm{1}\mathbin{+}\Varid{s},\mathrm{1}\mathbin{+}\Varid{s}){}\<[E]%
 \\
 \>[B]{}\Varid{inic}\mathrel{=}(\mathrm{1},\mathrm{1}){}\<[E]%
 \\
 \>[B]{}\Varid{prj}\mathrel{=}\p1{}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-por forma a que
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\\[\blanklineskip]%
 \>[B]{}\Varid{cat}\mathrel{=}\Varid{prj}\comp \for{\Varid{loop}}\ {\Varid{inic}}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-seja a função pretendida.
 \textbf{NB}: usar divisão inteira.
 Apresentar de seguida a justificação da solução encontrada.
 
+Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, 
+
+C_n = \frac{(2n)!}{(n+1)! (n!) } \vspace{0.5cm}
+
+Com isto, é possível concluir que \vspace{0.5cm}
+
+C_n = \frac{1} {n+1} (2n n)
 \subsection*{Problema 3}
 
 \begin{hscode}\SaveRestoreHook
@@ -1838,12 +1872,7 @@ Apresentar de seguida a justificação da solução encontrada.
 \>[B]{}\Varid{calcLine}\mathrel{=}\Varid{cataList}\;\Varid{h}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{4}{}\<[4]%
-\>[4]{}\Varid{h}\mathrel{=}\bot \mbox{\commentbegin either g1 (inList . divide)
-   g1 _ _ = nil 
-   divide (x:xs) ys = (x,(xs,ys))
-   inList (x,(xs,ys)) = x:xs:ys \commentend}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment  talvez usar o x e o xs para calcular o Overtime?}{}\<[E]%
+\>[4]{}\Varid{h}\mathrel{=}\bot {}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{deCasteljau}\mathbin{::}[\mskip1.5mu \Conid{NPoint}\mskip1.5mu]\to \Conid{OverTime}\;\Conid{NPoint}{}\<[E]%
 \\
@@ -1868,11 +1897,9 @@ Solução para listas não vazias:
 \>[B]{}\Varid{avg}\mathrel{=}\p1\comp \Varid{avg\char95 aux}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
+\textbf{Versão pointwise}
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{15}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{comprimento}\;[\mskip1.5mu \Varid{a}\mskip1.5mu]\mathrel{=}\mathrm{1}{}\<[E]%
 \\
@@ -1881,13 +1908,25 @@ Solução para listas não vazias:
 \>[B]{}\Varid{media}\;[\mskip1.5mu \Varid{a}\mskip1.5mu]\mathrel{=}\Varid{a}{}\<[E]%
 \\
 \>[B]{}\Varid{media}\;(\Varid{a}\mathbin{:}\Varid{x})\mathrel{=}(\Varid{a}\mathbin{+}(\Varid{comprimento}\;\Varid{x})\mathbin{*}(\Varid{media}\;\Varid{x}))\mathbin{/}(\mathrm{1}\mathbin{+}\Varid{comprimento}\;\Varid{x}){}\<[E]%
-\\[\blanklineskip]%
+\ColumnHook
+\end{hscode}\resethooks
+
+\textbf{Definição do catamorfismo para listas não vazias}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{outL}\;[\mskip1.5mu \Varid{a}\mskip1.5mu]\mathrel{=}i_1\;\Varid{a}{}\<[E]%
 \\
 \>[B]{}\Varid{outL}\;(\Varid{a}\mathbin{:}\Varid{x})\mathrel{=}i_2\;(\Varid{a},\Varid{x}){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{myCataList}\;\Varid{g}\mathrel{=}\Varid{g}\comp \Varid{recList}\;(\Varid{myCataList}\;\Varid{g})\comp \Varid{outL}{}\<[E]%
-\\[\blanklineskip]%
+\ColumnHook
+\end{hscode}\resethooks
+
+\textbf{Funções auxiliares}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{divide}\mathrel{=}\uncurry{(\mathbin{/})}{}\<[E]%
 \\
 \>[B]{}\Varid{multiplica}\mathrel{=}\uncurry{(\mathbin{*})}{}\<[E]%
@@ -1895,7 +1934,15 @@ Solução para listas não vazias:
 \>[B]{}\Varid{soma}\mathrel{=}\uncurry{(\mathbin{+})}{}\<[E]%
 \\
 \>[B]{}\Varid{suc}\mathrel{=}(\mathbin{+}\mathrm{1.0}){}\<[E]%
-\\[\blanklineskip]%
+\ColumnHook
+\end{hscode}\resethooks
+
+\textbf{Versão pointfree}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{15}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{avg\char95 aux}\mathrel{=}\Varid{myCataList}\;\alt{\Varid{b}}{\Varid{q}}{}\<[E]%
 \\
 \>[B]{}\hsindent{9}{}\<[9]%
@@ -1906,9 +1953,11 @@ Solução para listas não vazias:
 \ColumnHook
 \end{hscode}\resethooks
 Solução para árvores de tipo \LTree:
+
+
+\textbf{Versão pointwise}
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{4}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{compLTree}\;(\Conid{Leaf}\;\Varid{a})\mathrel{=}\mathrm{1}{}\<[E]%
 \\
@@ -1917,7 +1966,15 @@ Solução para árvores de tipo \LTree:
 \>[B]{}\Varid{mediaLTree}\;(\Conid{Leaf}\;\Varid{a})\mathrel{=}\Varid{a}{}\<[E]%
 \\
 \>[B]{}\Varid{mediaLTree}\;(\Conid{Fork}\;(\Varid{a},\Varid{b}))\mathrel{=}(\Varid{compLTree}\;\Varid{a}\mathbin{*}\Varid{mediaLTree}\;\Varid{a}\mathbin{+}\Varid{compLTree}\;\Varid{b}\mathbin{*}\Varid{mediaLTree}\;\Varid{b})\mathbin{/}(\Varid{compLTree}\;\Varid{a}\mathbin{+}\Varid{compLTree}\;\Varid{b}){}\<[E]%
-\\[\blanklineskip]%
+\ColumnHook
+\end{hscode}\resethooks
+
+
+\textbf{Versão pointfree}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{4}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{avgLTree}\mathrel{=}\p1\comp \llparenthesis\, \Varid{gene}\,\rrparenthesis\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{4}{}\<[4]%
