@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.13)  15 JUN 2021 13:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.13)  15 JUN 2021 16:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -999,59 +999,59 @@ you left one out. Proceed, with fingers crossed.
 \openout5 = `cp2021t.ptb'.
 
  <xymatrix 2x2 194>
-Overfull \hbox (71.88716pt too wide) in alignment at lines 1716--1728
+Overfull \hbox (71.88716pt too wide) in alignment at lines 1730--1742
  [][][] []
  []
 
 \openout5 = `cp2021t.ptb'.
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1744--1779
  [][][][][][] 
  []
 
  [14] <xymatrix 2x2 194>
-Overfull \hbox (45.63014pt too wide) in alignment at lines 1771--1783
+Overfull \hbox (45.63014pt too wide) in alignment at lines 1785--1797
  [][][] []
  []
 
@@ -1062,50 +1062,50 @@ Overfull \hbox (45.63014pt too wide) in alignment at lines 1771--1783
 \openout5 = `cp2021t.ptb'.
 
 ! Double subscript.
-l.1860 	C_n_
+l.1874 	C_n_
             -_1 = \frac{2(n-1)!} {n! (n-1)! }
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.1860 	C_n_-_
+l.1874 	C_n_-_
               1 = \frac{2(n-1)!} {n! (n-1)! }
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
 <argument> C_n_
                -_1
-l.1867 	\frac {C_n} {C_n_-_1}
+l.1881 	\frac {C_n} {C_n_-_1}
                               = \frac{(2n)(2n-1)(2n-2)!(n-1)!} {(n+1)n(n-1)!...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
 <argument> C_n_-_
                  1
-l.1867 	\frac {C_n} {C_n_-_1}
+l.1881 	\frac {C_n} {C_n_-_1}
                               = \frac{(2n)(2n-1)(2n-2)!(n-1)!} {(n+1)n(n-1)!...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.1872 	C_n = \frac{2(2n-1)} {n+1} C_n_
+l.1886 	C_n = \frac{2(2n-1)} {n+1} C_n_
                                        -_1 = \frac {(4n-2)*C_n_-_1} {n+1}
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.1872 	C_n = \frac{2(2n-1)} {n+1} C_n_-_
+l.1886 	C_n = \frac{2(2n-1)} {n+1} C_n_-_
                                          1 = \frac {(4n-2)*C_n_-_1} {n+1}
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
 <argument> (4n-2)*C_n_
                       -_1
-l.1872 ...} C_n_-_1 = \frac {(4n-2)*C_n_-_1} {n+1}
+l.1886 ...} C_n_-_1 = \frac {(4n-2)*C_n_-_1} {n+1}
                                                   
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
 <argument> (4n-2)*C_n_-_
                         1
-l.1872 ...} C_n_-_1 = \frac {(4n-2)*C_n_-_1} {n+1}
+l.1886 ...} C_n_-_1 = \frac {(4n-2)*C_n_-_1} {n+1}
                                                   
 I treat `x_1_2' essentially like `x_1{}_2'.
 
@@ -1123,19 +1123,20 @@ I treat `x_1_2' essentially like `x_1{}_2'.
  <xymatrix 2x2 194>
 \openout5 = `cp2021t.ptb'.
 
+ [16]
 \openout5 = `cp2021t.ptb'.
 
- <xymatrix 2x2 194> [16]
+ <xymatrix 2x2 194>
 \openout5 = `cp2021t.ptb'.
 
 No file cp2021t.ind.
 No file cp2021t.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2057.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2075.
  [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2057.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2075.
  (./cp2021t.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2057.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2057.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2075.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2075.
 
 Package rerunfilecheck Info: File `cp2021t.out' has not changed.
 (rerunfilecheck)             Checksum: 7ABFEEFBC6EDEE4EAEC2BDEF142178CE;514.
@@ -1145,7 +1146,7 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2057.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2075.
  ) 
 Here is how much of TeX's memory you used:
  13945 strings out of 483090
@@ -1181,7 +1182,7 @@ exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/xypic/xyatip10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xypi
 c/xybtip10.pfb>
-Output written on cp2021t.pdf (17 pages, 348928 bytes).
+Output written on cp2021t.pdf (17 pages, 349947 bytes).
 PDF statistics:
  369 PDF objects out of 1000 (max. 8388607)
  317 compressed objects within 4 object streams

@@ -1085,7 +1085,7 @@ g_eval_exp a = either (const a) (either id (either g3 g4))
 \textbf{clean}
 
 O seguinte diagrama representa o anamorfismo utilizado no hilomorfismo, sendo que 
-o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
+o catamorfismo corresponde ao g_eval_exp explicado anteriormente. 
 
 \begin{eqnarray*}
 \xymatrix@@C=3.5cm{
@@ -1102,6 +1102,20 @@ o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
   \ar[u]_-{|recExpAr|}
 }
 \end{eqnarray*}
+
+O anamorfismo clean otimiza os casos das operações com elementos neutros e absorventes.
+Por exemplo, na soma, sempre que uma das parcelas contém uma constante com o valor zero, 
+o gene ignora-o e apenas percorre a restante parcela. Quanto à multiplicação, sempre que
+um dos elementos tem a constante com o valor zero, o gene injeta apenas essa mesma constante,
+uma vez que o zero é o elemento absorvente da multiplicação. Para além disso, existe o valor
+um como elemento neutro da mesma operação, sendo que, nesses casos, o gene percorre a restante
+parcela. 
+
+Foram também otimizados, nas operações unárias, a negação de um valor constante, que é 
+resolvido através da injeção de um novo constante, pois a negação de um constante resulta também
+num constante. Por fim, com o exponencial de base $e$, são tratados os casos em que o expoente 
+corresponde a um valor constante, injetando, tal como na negação, um novo valor, desta vez
+correspondente ao resultado do exponencial elevado à constante.
 
 \begin{code}
 clean X = i1 ()
@@ -1252,7 +1266,9 @@ Solução para listas não vazias:
 \begin{code}
 avg = p1.avg_aux
 \end{code}
+
 \textbf{Versão pointwise}
+
 \begin{code}
 comprimento [a] = 1
 comprimento (a:x) = 1 + comprimento x
@@ -1300,6 +1316,8 @@ avg_aux = myCataList (either b q)
 
         
 \end{code}
+
+\newpage
 Solução para árvores de tipo \LTree: \vspace{0.5cm}
 
 \textbf{Versão pointwise}
