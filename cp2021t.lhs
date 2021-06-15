@@ -1025,7 +1025,7 @@ Definir: \vspace{1cm}
   |ExpAr A| 
   \ar@@/_2pc/[r]_-{|outExpAr|}
   & 
-  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
+  |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
   \ar@@/_2pc/[l]_-{|inExpAr|}
 }
 \end{eqnarray*}
@@ -1045,10 +1045,10 @@ a função irá ser aplicada apenas a esses casos.
 
 \begin{eqnarray*}
 \xymatrix@@C=3.5cm{
-  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))| 
+  |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))| 
   \ar[d]_-{|id + (id + (id >< f quadrado + id >< f))|}
   \\ 
-  |X + (N + (BinOp >< Nat0 quadrado + UnOp >< Nat0))|
+  |1 + (N + (BinOp >< B quadrado + UnOp >< B))|
 }
 \end{eqnarray*}
 
@@ -1090,9 +1090,9 @@ o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
 \begin{eqnarray*}
 \xymatrix@@C=3.5cm{
   |ExpAr B| 
-  \ar[r]^-{|outExpAr|}
   & 
   |1 + (N + (BinOp >< (ExpAr B)quadrado + UnOp >< (ExpAr A)))|
+  \ar[l]_-{|inExpAr|}
   \\
   |ExpAr A| 
   \ar[u]^-{|anaExpAr (clean)|}
@@ -1103,12 +1103,12 @@ o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
 }
 \end{eqnarray*}
 
-O anamorfismo clean otimiza os casos das operações com elementos neutros e absorventes.
+O anamorfismo \textbf{clean} otimiza os casos das operações com elementos neutros e absorventes.
 Por exemplo, na soma, sempre que uma das parcelas contém uma constante com o valor zero, 
 o gene ignora-o e apenas percorre a restante parcela. Quanto à multiplicação, sempre que
 um dos elementos tem a constante com o valor zero, o gene injeta apenas essa mesma constante,
 uma vez que o zero é o elemento absorvente da multiplicação. Para além disso, existe o valor
-um como elemento neutro da mesma operação, sendo que, nesses casos, o gene percorre a restante
+1 (um) como elemento neutro da mesma operação, sendo que, nesses casos, o gene percorre a restante
 parcela. 
 
 Foram também otimizados, nas operações unárias, a negação de um valor constante, que é 
@@ -1156,7 +1156,8 @@ gopt a = g_eval_exp a
 
 \begin{code}
 sd_gen :: Floating a =>
- Either () (Either a (Either (BinOp, ((ExpAr a, ExpAr a), (ExpAr a, ExpAr a))) (UnOp, (ExpAr a, ExpAr a)))) -> (ExpAr a, ExpAr a)
+ Either () (Either a (Either (BinOp, ((ExpAr a, ExpAr a), (ExpAr a, ExpAr a))) (UnOp, (ExpAr a, ExpAr a)))) 
+ -> (ExpAr a, ExpAr a)
 sd_gen = either g1 (either g2 (either g3 g4))
         where g1 ()                       = (X, N 1.0)
               g2 a                        = (N a, N 0.0)

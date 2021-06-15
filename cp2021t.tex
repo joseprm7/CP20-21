@@ -1563,7 +1563,7 @@ Definir: \vspace{1cm}
   \ensuremath{\Conid{ExpAr}\;\Conid{A}} 
   \ar@/_2pc/[r]_-{\ensuremath{\Varid{outExpAr}}}
   & 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
   \ar@/_2pc/[l]_-{\ensuremath{\Varid{inExpAr}}}
 }
 \end{eqnarray*}
@@ -1588,10 +1588,10 @@ a função irá ser aplicada apenas a esses casos.
 
 \begin{eqnarray*}
 \xymatrix@C=3.5cm{
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))} 
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))} 
   \ar[d]_-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\mathbin{+}(\Varid{id}\times\Varid{f}\;^2\mathbin{+}\Varid{id}\times\Varid{f}))}}
   \\ 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\N_0\;^2\mathbin{+}\Conid{UnOp}\times\N_0))}
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\Conid{B}\;^2\mathbin{+}\Conid{UnOp}\times\Conid{B}))}
 }
 \end{eqnarray*}
 
@@ -1651,9 +1651,9 @@ o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
 \begin{eqnarray*}
 \xymatrix@C=3.5cm{
   \ensuremath{\Conid{ExpAr}\;\Conid{B}} 
-  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
   & 
   \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \ar[l]_-{\ensuremath{\Varid{inExpAr}}}
   \\
   \ensuremath{\Conid{ExpAr}\;\Conid{A}} 
   \ar[u]^-{\ensuremath{\ana{\Varid{clean}}}}
@@ -1664,12 +1664,12 @@ o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
 }
 \end{eqnarray*}
 
-O anamorfismo clean otimiza os casos das operações com elementos neutros e absorventes.
+O anamorfismo \textbf{clean} otimiza os casos das operações com elementos neutros e absorventes.
 Por exemplo, na soma, sempre que uma das parcelas contém uma constante com o valor zero, 
 o gene ignora-o e apenas percorre a restante parcela. Quanto à multiplicação, sempre que
 um dos elementos tem a constante com o valor zero, o gene injeta apenas essa mesma constante,
 uma vez que o zero é o elemento absorvente da multiplicação. Para além disso, existe o valor
-um como elemento neutro da mesma operação, sendo que, nesses casos, o gene percorre a restante
+1 (um) como elemento neutro da mesma operação, sendo que, nesses casos, o gene percorre a restante
 parcela. 
 
 Foram também otimizados, nas operações unárias, a negação de um valor constante, que é 
@@ -1749,7 +1749,9 @@ correspondente ao resultado do exponencial elevado à constante.
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{sd\char95 gen}\mathbin{::}\Conid{Floating}\;\Varid{a}\Rightarrow {}\<[E]%
 \\
-\>[B]{}()+(\Varid{a}+((\Conid{BinOp},((\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}),(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))+(\Conid{UnOp},(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}))))\to (\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}){}\<[E]%
+\>[B]{}()+(\Varid{a}+((\Conid{BinOp},((\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}),(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))+(\Conid{UnOp},(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))){}\<[E]%
+\\
+\>[B]{}\to (\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}){}\<[E]%
 \\
 \>[B]{}\Varid{sd\char95 gen}\mathrel{=}\alt{\Varid{g1}}{\alt{\Varid{g2}}{\alt{\Varid{g3}}{\Varid{g4}}}}{}\<[E]%
 \\
