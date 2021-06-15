@@ -1846,23 +1846,35 @@ o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
 \>[B]{}\Varid{cat}\mathrel{=}\Varid{prj}\comp \for{\Varid{loop}}\ {\Varid{inic}}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-\textbf{NB}: usar divisão inteira.
-Apresentar de seguida a justificação da solução encontrada.
 
-Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, \vspace{0.5cm}
+Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, 
 
-C_n = \frac{(2n)!}{(n+1)! (n!) } \vspace{0.5cm}
+\begin{eqnarray}
+	C_n = \frac{(2n)!} {(n+1)! n! }
+	\label{eq:cat}
+\end{eqnarray} \vspace{0.2cm}
 
-Analiticamente, podemos concluir que \vspace{0.5cm}
+Analiticamente, podemos concluir que 
 
-C_n = \frac{1} {n+1} \begin{pmatrix} 2n \\ n \end{pmatrix} = 
-\begin{pmatrix} 2n \\ n \end{pmatrix} - \begin{pmatrix} 2n \\ n+1 \end{pmatrix}, n \geq 0
+\begin{eqnarray}
+	C_n_-_1 = \frac{2(n-1)!} {n! (n-1)! }
+	\label{eq:cat}
+\end{eqnarray} \vspace{0.2cm}
 
-\vspace{0.5cm}Para além disso, os números de Catalan satisfazem a seguinte relação de recursividade: \vspace{0.5cm}
+Assim, 
 
-C_0 = 1                 
+\begin{eqnarray}
+	\frac {C_n} {C_n_-_1} = \frac{(2n)(2n-1)(2n-2)!(n-1)!} {(n+1)n(n-1)!(2n-2)!} = \frac {2(2n-1)} {n+1}
+	\label{eq:cat}
+\end{eqnarray} 
 
-C_n_+_1 = \sum_{i = 0}^{n} C_i C_n_-_i $, para n \geq 0 
+\begin{eqnarray}
+	C_n = \frac{2(2n-1)} {n+1} C_n_-_1 = \frac {(4n-2)*C_n_-_1} {n+1}
+	\label{eq:cat}
+\end{eqnarray} \vspace{0.5cm}
+
+Estabelecendo então a relação de recursividade pretendida.
+
 \subsection*{Problema 3}
 
 \begin{hscode}\SaveRestoreHook
