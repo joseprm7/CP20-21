@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.13)  14 JUN 2021 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.13)  15 JUN 2021 01:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -453,9 +453,11 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package color Info: Redefining color red on input line 10.
-Package color Info: Redefining color blue on input line 11.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip50
 
+For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
@@ -464,6 +466,67 @@ File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks27
 \ex@=\dimen262
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen263
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count280
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count281
+\leftroot@=\count282
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count283
+\DOTSCASE@=\count284
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+\big@size=\dimen264
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count285
+\c@MaxMatrixCols=\count286
+\dotsspace@=\muskip17
+\c@parentequation=\count287
+\dspbrk@lvl=\count288
+\tag@help=\toks28
+\row@=\count289
+\column@=\count290
+\maxfields@=\count291
+\andhelp@=\toks29
+\eqnshift@=\dimen265
+\alignsep@=\dimen266
+\tagshift@=\dimen267
+\tagwidth@=\dimen268
+\totwidth@=\dimen269
+\lineht@=\dimen270
+\@envbody=\toks30
+
+
+! LaTeX Error: Command \split already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2318 }
+        
+? q
+OK, entering \batchmode...
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+Package color Info: Redefining color red on input line 11.
+Package color Info: Redefining color blue on input line 12.
+
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -480,75 +543,72 @@ Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 \symstmry=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 (Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
-)
-(/usr/share/texmf/tex/latex/polytable/polytable.sty
+) (/usr/share/texmf/tex/latex/polytable/polytable.sty
 Package: polytable 2013/07/18 v0.8.5 `polytable' package (Andres Loeh)
-
-(/usr/share/texmf/tex/latex/polytable/lazylist.sty)
+ (/usr/share/texmf/tex/latex/polytable/lazylist.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen263
-\ar@mcellbox=\box52
-\extrarowheight=\dimen264
-\NC@list=\toks28
-\extratabsurround=\skip50
-\backup@length=\skip51
-\ar@cellbox=\box53
+\col@sep=\dimen271
+\ar@mcellbox=\box54
+\extrarowheight=\dimen272
+\NC@list=\toks32
+\extratabsurround=\skip53
+\backup@length=\skip54
+\ar@cellbox=\box55
 )
-\PT@colwidth=\dimen265
-\PT@cols=\count280
-\PT@table=\count281
-\PT@toks=\toks29
+\PT@colwidth=\dimen273
+\PT@cols=\count292
+\PT@table=\count293
+\PT@toks=\toks33
 \PT@in=\read5
 \PT@out=\write5
 )
-\blanklineskip=\skip52
-
-(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+\blanklineskip=\skip55
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count282
-\calc@Bcount=\count283
-\calc@Adimen=\dimen266
-\calc@Bdimen=\dimen267
-\calc@Askip=\skip53
-\calc@Bskip=\skip54
+\calc@Acount=\count294
+\calc@Bcount=\count295
+\calc@Adimen=\dimen274
+\calc@Bdimen=\dimen275
+\calc@Askip=\skip56
+\calc@Bskip=\skip57
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count284
-\calc@Cskip=\skip55
+\calc@Ccount=\count296
+\calc@Cskip=\skip58
 )
 \@indexfile=\write6
 \openout6 = `cp2021t.idx'.
 
-
 Writing index file cp2021t.idx
+
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count285
-\l__pdf_internal_box=\box54
-)
-(./cp2021t.aux)
+\l__kernel_color_stack_int=\count297
+\l__pdf_internal_box=\box56
+) (./cp2021t.aux)
 \openout1 = `cp2021t.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 3
-02.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+03.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 *geometry* driver: auto-detecting
@@ -585,8 +645,9 @@ File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box55
-Package hyperref Info: Link coloring ON on input line 302.
+\AtBeginShipoutBox=\box57
+Package hyperref Info: Link coloring ON on input line 303.
+
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -596,31 +657,31 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count286
+\c@section@level=\count298
 )
-LaTeX Info: Redefining \ref on input line 302.
-LaTeX Info: Redefining \pageref on input line 302.
-LaTeX Info: Redefining \nameref on input line 302.
-
-(./cp2021t.out) (./cp2021t.out)
+LaTeX Info: Redefining \ref on input line 303.
+LaTeX Info: Redefining \pageref on input line 303.
+LaTeX Info: Redefining \nameref on input line 303.
+ (./cp2021t.out) (./cp2021t.out)
 \@outlinefile=\write7
 \openout7 = `cp2021t.out'.
 
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count287
-\scratchdimen=\dimen268
-\scratchbox=\box56
-\nofMPsegments=\count288
-\nofMParguments=\count289
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count290
-\MPscratchDim=\dimen269
-\MPnumerator=\count291
-\makeMPintoPDFobject=\count292
-\everyMPtoPDFconversion=\toks31
-) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+\scratchcounter=\count299
+\scratchdimen=\dimen276
+\scratchbox=\box58
+\nofMPsegments=\count300
+\nofMParguments=\count301
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count302
+\MPscratchDim=\dimen277
+\MPnumerator=\count303
+\makeMPintoPDFobject=\count304
+\everyMPtoPDFconversion=\toks35
+)
+(/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
@@ -629,38 +690,38 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 302
+LaTeX Font Info:    Trying to load font information for U+msa on input line 303
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 302
+LaTeX Font Info:    Trying to load font information for U+msb on input line 303
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
-02.
+03.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-Package xypdf Info: Line width: 0.39998pt on input line 302.
+Package xypdf Info: Line width: 0.39998pt on input line 303.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-
-LaTeX Warning: Citation `Kn92' on page 1 undefined on input line 338.
+LaTeX Warning: Citation `Kn92' on page 1 undefined on input line 339.
 
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
-46.
+47.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 4
-27.
+28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
@@ -674,14 +735,14 @@ File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 \openout5 = `cp2021t.ptb'.
 
 
-Overfull \hbox (6.3199pt too wide) in paragraph at lines 558--561
+Overfull \hbox (6.3199pt too wide) in paragraph at lines 559--562
 []$[]$ \OT1/ppl/m/it/10 e $[]$ s~ao tes-te-mu-nhas de um iso-mor-fismo, isto ^^
 Se, $[] []
  []
 
 \openout5 = `cp2021t.ptb'.
 
-[3]
+ [3]
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
@@ -698,19 +759,19 @@ Se, $[] []
 \openout5 = `cp2021t.ptb'.
 
 
-
-Package hyperref Warning: Suppressing link with empty target on input line 762.
-
+Package hyperref Warning: Suppressing link with empty target on input line 763.
 
 
-LaTeX Warning: Citation `Ol18' on page 5 undefined on input line 762.
+
+LaTeX Warning: Citation `Ol18' on page 5 undefined on input line 763.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 762.
+Package hyperref Warning: Suppressing link with empty target on input line 763.
 
 
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 7
-69.
+70.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
@@ -720,7 +781,7 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 
  [5]
 
-LaTeX Warning: Citation `Ol18' on page 6 undefined on input line 808.
+LaTeX Warning: Citation `Ol18' on page 6 undefined on input line 809.
 
 \openout5 = `cp2021t.ptb'.
 
@@ -734,14 +795,14 @@ LaTeX Warning: Citation `Ol18' on page 6 undefined on input line 808.
 File: cp2021t_media/Bezier_curves.png Graphic file (type png)
 <use cp2021t_media/Bezier_curves.png>
 Package pdftex.def Info: cp2021t_media/Bezier_curves.png  used on input line 87
-8.
+9.
 (pdftex.def)             Requested size: 364.19667pt x 151.75493pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 \openout5 = `cp2021t.ptb'.
 
-[6]
+ [6]
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
@@ -761,27 +822,27 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
  [8]
 
-LaTeX Warning: Citation `Ol18' on page 9 undefined on input line 1076.
+LaTeX Warning: Citation `Ol18' on page 9 undefined on input line 1077.
 
-<xymatrix 2x2 191>
-
-Package hyperref Warning: Suppressing link with empty target on input line 1110
-.
-
-
-LaTeX Warning: Citation `Ol18' on page 9 undefined on input line 1111.
-
+ <xymatrix 2x2 191>
 
 Package hyperref Warning: Suppressing link with empty target on input line 1111
 .
 
-\openout5 = `cp2021t.ptb'.
+
+LaTeX Warning: Citation `Ol18' on page 9 undefined on input line 1112.
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 1112
+.
 
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
 
-[9]
+\openout5 = `cp2021t.ptb'.
+
+ [9]
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
@@ -807,77 +868,77 @@ Package hyperref Warning: Suppressing link with empty target on input line 1111
 \openout5 = `cp2021t.ptb'.
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][][][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][] 
  []
 
 
-Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
+Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
  [][] 
  []
 
@@ -885,90 +946,99 @@ Overfull \hbox (8.57883pt too wide) in paragraph at lines 1428--1477
 
 \openout5 = `cp2021t.ptb'.
 
-[12] <xymatrix 2x1 112>
-Overfull \hbox (49.06375pt too wide) in alignment at lines 1560--1568
+ [12] <xymatrix 2x1 112>
+Overfull \hbox (49.06375pt too wide) in alignment at lines 1561--1569
  [][][] []
  []
 
 \openout5 = `cp2021t.ptb'.
 
-<xymatrix 1x2 54>
+ <xymatrix 1x2 54>
 \openout5 = `cp2021t.ptb'.
 
  <xymatrix 2x2 194>
-Overfull \hbox (23.27771pt too wide) in alignment at lines 1606--1618
+Overfull \hbox (23.27771pt too wide) in alignment at lines 1607--1619
  [][][] []
  []
 
 \openout5 = `cp2021t.ptb'.
 
-[13] <xymatrix 2x3
-! Xy-pic error: in entry "1,2": No [u] (is "0,2") from here.
-\xyerror@ ...#2}\fi \errmessage {Xy-pic error: #1}
-                                                  }
-l.1669 }
-        
-? q
-OK, entering \batchmode...
- 334>
+ [13]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1649 o catamorfismo corresponde ao g_
+                                       eval_exp explicado anteriormente.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1650 
+       
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+ <xymatrix 2x2 194>
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
 
  <xymatrix 2x2 194>
-Overfull \hbox (71.88716pt too wide) in alignment at lines 1721--1733
+Overfull \hbox (71.88716pt too wide) in alignment at lines 1716--1728
  [][][] []
  []
 
 \openout5 = `cp2021t.ptb'.
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][][][][][] 
  []
 
 
-Overfull \hbox (93.62512pt too wide) in paragraph at lines 1735--1770
+Overfull \hbox (93.62512pt too wide) in paragraph at lines 1730--1765
  [][][][][][] 
  []
 
  [14] <xymatrix 2x2 194>
-Overfull \hbox (51.09587pt too wide) in alignment at lines 1776--1788
+Overfull \hbox (45.63014pt too wide) in alignment at lines 1771--1783
  [][][] []
  []
 
@@ -981,8 +1051,24 @@ Overfull \hbox (51.09587pt too wide) in alignment at lines 1776--1788
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1859 C_
+l.1854 C_
          n = \frac{(2n)!}{(n+1)! (n!) } \vspace{0.5cm}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1855 
+       
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1858 C_
+         n = \frac{1} {n+1} \begin{pmatrix} 2n \\ n \end{pmatrix} =
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -998,21 +1084,61 @@ you left one out. Proceed, with fingers crossed.
 <inserted text> 
                 $
 l.1863 C_
-         n = \frac{1} {n+1} (2n n)
+         0 = 1
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1864 \subsection
-                  *{Problema 3}
+l.1864 
+       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-\openout5 = `cp2021t.ptb'.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1865 C_
+         n_+_1 = \sum_{i = 0}^{n} C_i C_n_-_i $, para n \geq 0
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-\openout5 = `cp2021t.ptb'.
+! Double subscript.
+l.1865 C_n_
+           +_1 = \sum_{i = 0}^{n} C_i C_n_-_i $, para n \geq 0
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.1865 C_n_+_
+             1 = \sum_{i = 0}^{n} C_i C_n_-_i $, para n \geq 0
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.1865 C_n_+_1 = \sum_{i = 0}^{n} C_i C_n_
+                                          -_i $, para n \geq 0
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.1865 C_n_+_1 = \sum_{i = 0}^{n} C_i C_n_-_
+                                            i $, para n \geq 0
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1865 ...m_{i = 0}^{n} C_i C_n_-_i $, para n \geq
+                                                   0
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1866 \subsection
+                  *{Problema 3}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
 \openout5 = `cp2021t.ptb'.
 
@@ -1025,52 +1151,39 @@ you left one out. Proceed, with fingers crossed.
 
 \openout5 = `cp2021t.ptb'.
 
-
-Overfull \hbox (100.74791pt too wide) in paragraph at lines 1959--1970
- [][] 
- []
-
-
-Overfull \hbox (100.74791pt too wide) in paragraph at lines 1959--1970
- [][] 
- []
-
-
-Overfull \hbox (100.74791pt too wide) in paragraph at lines 1959--1970
- [][] 
- []
-
-
-Overfull \hbox (100.74791pt too wide) in paragraph at lines 1959--1970
- [][] 
- []
+ <xymatrix 2x2 194>
+\openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
 
+ <xymatrix 2x2 194>
+\openout5 = `cp2021t.ptb'.
+
+ [16]
 No file cp2021t.ind.
 No file cp2021t.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2010.
- [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2010.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2045.
+ [17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2045.
  (./cp2021t.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2010.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2010.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2045.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2045.
 
 Package rerunfilecheck Info: File `cp2021t.out' has not changed.
 (rerunfilecheck)             Checksum: 7ABFEEFBC6EDEE4EAEC2BDEF142178CE;514.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2010.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2045.
  ) 
 Here is how much of TeX's memory you used:
- 13398 strings out of 483090
- 194740 string characters out of 5963929
- 524985 words of memory out of 5000000
- 28014 multiletter control sequences out of 15000+600000
+ 13945 strings out of 483090
+ 200876 string characters out of 5963929
+ 535435 words of memory out of 5000000
+ 28551 multiletter control sequences out of 15000+600000
  567979 words of font info for 125 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
- 48i,18n,77p,3290b,757s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,18n,77p,3290b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
@@ -1097,10 +1210,10 @@ exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/xypic/xyatip10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xypi
 c/xybtip10.pfb>
-Output written on cp2021t.pdf (16 pages, 345920 bytes).
+Output written on cp2021t.pdf (17 pages, 349135 bytes).
 PDF statistics:
- 365 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
- 74 named destinations out of 1000 (max. 500000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 317 compressed objects within 4 object streams
+ 75 named destinations out of 1000 (max. 500000)
  70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

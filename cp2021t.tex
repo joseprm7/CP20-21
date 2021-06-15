@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{adjustbox}
 \usepackage{color}
+\usepackage{amsmath}
 \definecolor{red}{RGB}{255,  0,  0}
 \definecolor{blue}{RGB}{0,0,255}
 \def\red{\color{red}}
@@ -1644,28 +1645,22 @@ a função irá ser aplicada apenas a esses casos.
 
 \textbf{clean}
 
-O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
+O seguinte diagrama representa o anamorfismo utilizado no hilomorfismo, sendo que 
+o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
 
 \begin{eqnarray*}
 \xymatrix@C=3.5cm{
-  \ensuremath{\Conid{ExpAr}\;\Conid{A}}
-  \ar[r]_-{\ensuremath{\Varid{clean}}}
-  \ar[d]^-{\ensuremath{\ana{\Varid{clean}}}}
-  & 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
-  \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
-  \\
   \ensuremath{\Conid{ExpAr}\;\Conid{B}} 
-  \ar[d]^-{\ensuremath{\cata{\Varid{gopt}\;\Varid{a}}}}
-  & 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{B})))}
-  \ar[l]_-{\ensuremath{\Varid{inExpAr}}}
-  \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
-  \\
-  \ensuremath{\N_0}
   \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
   & 
-  \ensuremath{\Conid{X}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\Conid{A}\;^2\mathbin{+}\Conid{UnOp}\times\Conid{A}))}
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
+  \\
+  \ensuremath{\Conid{ExpAr}\;\Conid{A}} 
+  \ar[u]^-{\ensuremath{\ana{\Varid{clean}}}}
+  \ar[r]^-{\ensuremath{\Varid{clean}}}
+  & 
+  \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times\Conid{B}\;^2\mathbin{+}\Conid{UnOp}\times\Conid{B}))}
+  \ar[u]_-{\ensuremath{\Varid{recExpAr}}}
 }
 \end{eqnarray*}
 
@@ -1782,7 +1777,7 @@ O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
   \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{A})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{A})))}
   \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\mathbin{+}(\Varid{id}\times\cata{\Varid{ad\char95 gen}\;\Varid{v}}\mathbin{+}\Varid{id}\times\cata{\Varid{ad\char95 gen}\;\Varid{v}}))}}
   \\
-  \ensuremath{(\Conid{ExpAr}\;\Conid{B},\N_0)} & \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B}\times\N_0)\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{B}\times\N_0)))}
+  \ensuremath{(\Conid{ExpAr}\;\Conid{B},\Conid{B})} & \ensuremath{\mathrm{1}\mathbin{+}(\Conid{N}\mathbin{+}(\Conid{BinOp}\times(\Conid{ExpAr}\;\Conid{B}\times\Conid{B})\;^2\mathbin{+}\Conid{UnOp}\times(\Conid{ExpAr}\;\Conid{B}\times\Conid{B})))}
   \ar[l]^-{\ensuremath{[\mskip1.5mu \Varid{g1},[\mskip1.5mu \Varid{g2},[\mskip1.5mu \Varid{g3},\Varid{g4}\mskip1.5mu]\mskip1.5mu]\mskip1.5mu]}}
 }
 \end{eqnarray*}
@@ -1854,13 +1849,20 @@ O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
 \textbf{NB}: usar divisão inteira.
 Apresentar de seguida a justificação da solução encontrada.
 
-Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, 
+Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, \vspace{0.5cm}
 
 C_n = \frac{(2n)!}{(n+1)! (n!) } \vspace{0.5cm}
 
-Com isto, é possível concluir que \vspace{0.5cm}
+Analiticamente, podemos concluir que \vspace{0.5cm}
 
-C_n = \frac{1} {n+1} (2n n)
+C_n = \frac{1} {n+1} \begin{pmatrix} 2n \\ n \end{pmatrix} = 
+\begin{pmatrix} 2n \\ n \end{pmatrix} - \begin{pmatrix} 2n \\ n+1 \end{pmatrix}, n \geq 0
+
+\vspace{0.5cm}Para além disso, os números de Catalan satisfazem a seguinte relação de recursividade: \vspace{0.5cm}
+
+C_0 = 1                 
+
+C_n_+_1 = \sum_{i = 0}^{n} C_i C_n_-_i $, para n \geq 0 
 \subsection*{Problema 3}
 
 \begin{hscode}\SaveRestoreHook
@@ -1937,6 +1939,21 @@ Solução para listas não vazias:
 \ColumnHook
 \end{hscode}\resethooks
 
+\textbf{Diagrama do catamorfismo avg\_aux}
+\begin{eqnarray*}
+\xymatrix@C=3.5cm{
+  \ensuremath{\Conid{Double}\mathbin{*}} 
+  \ar[r]^-{\ensuremath{\Varid{outL}}}
+  \ar[d]_-{\ensuremath{\cata{\Varid{avg\char95 aux}}}}
+  & 
+  \ensuremath{\Conid{Double}\mathbin{+}\Conid{Double}\times\Conid{Double}\mathbin{*}}
+  \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times\cata{\Varid{avg\char95 aux}}}}
+  \\
+  \ensuremath{(\Conid{Double},\Conid{Double})} & \ensuremath{\Conid{Double}\mathbin{+}\Conid{Double}\times(\Conid{Double},\Conid{Double})}
+  \ar[l]^-{\ensuremath{\Varid{avg\char95 aux}}}
+}
+\end{eqnarray*}
+
 \textbf{Versão pointfree}
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1952,12 +1969,12 @@ Solução para listas não vazias:
 \>[15]{}\Varid{q}\mathrel{=}\conj{\Varid{divide}\comp \conj{\Varid{soma}\comp \conj{\Varid{multiplica}\comp \p2}{\p1}}{\Varid{suc}\comp \p2\comp \p2}}{\Varid{suc}\comp \p2\comp \p2}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-Solução para árvores de tipo \LTree:
-
+Solução para árvores de tipo \LTree: \vspace{0.5cm}
 
 \textbf{Versão pointwise}
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{27}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{compLTree}\;(\Conid{Leaf}\;\Varid{a})\mathrel{=}\mathrm{1}{}\<[E]%
 \\
@@ -1965,9 +1982,27 @@ Solução para árvores de tipo \LTree:
 \\[\blanklineskip]%
 \>[B]{}\Varid{mediaLTree}\;(\Conid{Leaf}\;\Varid{a})\mathrel{=}\Varid{a}{}\<[E]%
 \\
-\>[B]{}\Varid{mediaLTree}\;(\Conid{Fork}\;(\Varid{a},\Varid{b}))\mathrel{=}(\Varid{compLTree}\;\Varid{a}\mathbin{*}\Varid{mediaLTree}\;\Varid{a}\mathbin{+}\Varid{compLTree}\;\Varid{b}\mathbin{*}\Varid{mediaLTree}\;\Varid{b})\mathbin{/}(\Varid{compLTree}\;\Varid{a}\mathbin{+}\Varid{compLTree}\;\Varid{b}){}\<[E]%
+\>[B]{}\Varid{mediaLTree}\;(\Conid{Fork}\;(\Varid{a},\Varid{b}))\mathrel{=}(\Varid{compLTree}\;\Varid{a}\mathbin{*}\Varid{mediaLTree}\;\Varid{a}\mathbin{+}\Varid{compLTree}\;\Varid{b}\mathbin{*}\Varid{mediaLTree}\;\Varid{b})\mathbin{/}{}\<[E]%
+\\
+\>[B]{}\hsindent{27}{}\<[27]%
+\>[27]{}(\Varid{compLTree}\;\Varid{a}\mathbin{+}\Varid{compLTree}\;\Varid{b}){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\textbf{Diagrama do catamorfismo avgLTree}
+\begin{eqnarray*}
+\xymatrix@C=3.5cm{
+  \ensuremath{\mathsf{LTree}\;\Conid{Double}} 
+  \ar[r]^-{\ensuremath{\Varid{outExpAr}}}
+  \ar[d]_-{\ensuremath{\cata{\Varid{avgLTree}}}}
+  & 
+  \ensuremath{\Conid{Double}\mathbin{+}(\mathsf{LTree}\;\Conid{Double})\;^2}
+  \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\cata{\Varid{avgLTree}}\times\cata{\Varid{avgLTree}}}}
+  \\
+  \ensuremath{(\Conid{Double},\Conid{Double})} & \ensuremath{\Conid{Double}\mathbin{+}(\Conid{Double},\Conid{Double})\;^2}
+  \ar[l]^-{\ensuremath{\Varid{avgLTree}}}
+}
+\end{eqnarray*}
 
 
 \textbf{Versão pointfree}

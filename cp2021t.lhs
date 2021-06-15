@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{adjustbox}
 \usepackage{color}
+\usepackage{amsmath}
 \definecolor{red}{RGB}{255,  0,  0}
 \definecolor{blue}{RGB}{0,0,255}
 \def\red{\color{red}}
@@ -1083,28 +1084,22 @@ g_eval_exp a = either (const a) (either id (either g3 g4))
 
 \textbf{clean}
 
-O seguinte diagrama representa o hilomorfismo utilizando os genes resolvidos.
+O seguinte diagrama representa o anamorfismo utilizado no hilomorfismo, sendo que 
+o catamorfismo corresponde ao g_eval_exp explicado anteriormente.
 
 \begin{eqnarray*}
 \xymatrix@@C=3.5cm{
-  |ExpAr A|
-  \ar[r]_-{|clean|}
-  \ar[d]^-{|(anaExpAr (clean))|}
-  & 
-  |X + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
-  \ar[u]_-{|recExpAr|}
-  \\
   |ExpAr B| 
-  \ar[d]^-{|cata (gopt a)|}
-  & 
-  |X + (N + (BinOp >< (ExpAr B)quadrado + UnOp >< (ExpAr B)))|
-  \ar[l]_-{|inExpAr|}
-  \ar[u]_-{|recExpAr|}
-  \\
-  |Nat0|
   \ar[r]^-{|outExpAr|}
   & 
-  |X + (N + (BinOp >< A quadrado + UnOp >< A))|
+  |1 + (N + (BinOp >< (ExpAr B)quadrado + UnOp >< (ExpAr A)))|
+  \\
+  |ExpAr A| 
+  \ar[u]^-{|anaExpAr (clean)|}
+  \ar[r]^-{|clean|}
+  & 
+  |1 + (N + (BinOp >< B quadrado + UnOp >< B))|
+  \ar[u]_-{|recExpAr|}
 }
 \end{eqnarray*}
 
@@ -1171,7 +1166,7 @@ sd_gen = either g1 (either g2 (either g3 g4))
   |1 + (N + (BinOp >< (ExpAr A)quadrado + UnOp >< (ExpAr A)))|
   \ar[d]^-{|id + (id + (id >< cata (ad_gen v) + id >< cata (ad_gen v)))|}
   \\
-  |(ExpAr B, Nat0)| & |1 + (N + (BinOp >< (ExpAr B >< Nat0) quadrado + UnOp >< (ExpAr B >< Nat0)))|
+  |(ExpAr B, B)| & |1 + (N + (BinOp >< (ExpAr B >< B) quadrado + UnOp >< (ExpAr B >< B)))|
   \ar[l]^-{|[g1, [g2, [g3,g4]]]|}
 }
 \end{eqnarray*}
@@ -1210,13 +1205,20 @@ cat = prj . (for loop inic)
 \textbf{NB}: usar divisão inteira.
 Apresentar de seguida a justificação da solução encontrada.
 
-Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, 
+Seja Cn a função de Catalan do número n. Como demonstrado no enunciado, \vspace{0.5cm}
 
 C_n = \frac{(2n)!}{(n+1)! (n!) } \vspace{0.5cm}
 
-Com isto, é possível concluir que \vspace{0.5cm}
+Analiticamente, podemos concluir que \vspace{0.5cm}
 
-C_n = \frac{1} {n+1} (2n n)
+C_n = \frac{1} {n+1} \begin{pmatrix} 2n \\ n \end{pmatrix} = 
+\begin{pmatrix} 2n \\ n \end{pmatrix} - \begin{pmatrix} 2n \\ n+1 \end{pmatrix}, n \geq 0
+
+\vspace{0.5cm}Para além disso, os números de Catalan satisfazem a seguinte relação de recursividade: \vspace{0.5cm}
+
+C_0 = 1                 
+
+C_n_+_1 = \sum_{i = 0}^{n} C_i C_n_-_i $, para n \geq 0 
 \subsection*{Problema 3}
 
 \begin{code}
@@ -1263,6 +1265,21 @@ soma = uncurry (+)
 suc = (+1.0) 
 \end{code}
 
+\textbf{Diagrama do catamorfismo avg\_aux}
+\begin{eqnarray*}
+\xymatrix@@C=3.5cm{
+  |Double*| 
+  \ar[r]^-{|outL|}
+  \ar[d]_-{|cata (avg_aux)|}
+  & 
+  |Double + Double >< Double*|
+  \ar[d]^-{|id + id >< cata (avg_aux|}
+  \\
+  |(Double, Double)| & |Double + Double >< (Double, Double)|
+  \ar[l]^-{|avg_aux|}
+}
+\end{eqnarray*}
+
 \textbf{Versão pointfree}
 \begin{code}
 avg_aux = myCataList (either b q)
@@ -1271,8 +1288,7 @@ avg_aux = myCataList (either b q)
 
         
 \end{code}
-Solução para árvores de tipo \LTree:
-
+Solução para árvores de tipo \LTree: \vspace{0.5cm}
 
 \textbf{Versão pointwise}
 \begin{code}
@@ -1280,8 +1296,24 @@ compLTree (Leaf a) = 1
 compLTree (Fork (a,b)) = compLTree a + compLTree b
 
 mediaLTree (Leaf a) = a
-mediaLTree (Fork (a,b)) = (compLTree a * mediaLTree a + compLTree b * mediaLTree b)/(compLTree a + compLTree b)
+mediaLTree (Fork (a,b)) = (compLTree a * mediaLTree a + compLTree b * mediaLTree b)/
+                          (compLTree a + compLTree b)
 \end{code}
+
+\textbf{Diagrama do catamorfismo avgLTree}
+\begin{eqnarray*}
+\xymatrix@@C=3.5cm{
+  |LTree Double| 
+  \ar[r]^-{|outExpAr|}
+  \ar[d]_-{|cata (avgLTree)|}
+  & 
+  |Double + (LTree Double) quadrado|
+  \ar[d]^-{|id + cata (avgLTree) >< cata (avgLTree)|}
+  \\
+  |(Double, Double)| & |Double + (Double, Double) quadrado|
+  \ar[l]^-{|avgLTree|}
+}
+\end{eqnarray*}
 
 
 \textbf{Versão pointfree}
